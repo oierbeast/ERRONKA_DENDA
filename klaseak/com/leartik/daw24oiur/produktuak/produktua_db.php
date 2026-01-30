@@ -8,7 +8,7 @@ class ProduktuaDB
     public static function selectProduktuak()
     {
         try {
-            $db = new PDO("sqlite:C:\\xampp\\htdocs\\ERRONKA_01\\produktuak.db");
+            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
             $erregistroak = $db->query("select * from produktuak");
             $produktuak = array();
 
@@ -33,7 +33,7 @@ class ProduktuaDB
     public static function selectProduktua($id)
     {
         try {
-            $db = new PDO("sqlite:C:\\xampp\\htdocs\\ERRONKA_01\\produktuak.db");
+            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
             $erregistroak = $db->query("select * from produktuak where id=" . $id);
             $produktua = null;
 
@@ -60,7 +60,7 @@ class ProduktuaDB
     public static function insertProduktua($produktua)
     {
         try {
-            $db = new PDO("sqlite:C:\\xampp\\htdocs\\ERRONKA_01\\produktuak.db");
+            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
             $kategoria_id = $produktua->getKategoriaId() ? $produktua->getKategoriaId() : "NULL";
             $sql = "insert into produktuak (izena, kontsola, marka, urtea, prezioa, kategoria_id) values (";
             $sql .= "'" . $produktua->getIzena() . "',";
@@ -80,7 +80,7 @@ class ProduktuaDB
     public static function updateProduktua($produktua)
     {
         try {
-            $db = new PDO("sqlite:C:\\xampp\\htdocs\\ERRONKA_01\\produktuak.db");
+            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
             $sql = "UPDATE produktuak SET
                         izena = '" . $produktua->getIzena() . "',
                         kontsola = '" . $produktua->getKontsola() . "',
@@ -100,7 +100,7 @@ class ProduktuaDB
     public static function deleteProduktua($id)
     {
         try {
-            $db = new PDO("sqlite:C:\\xampp\\htdocs\\ERRONKA_01\\produktuak.db");
+            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
             $sql = "DELETE FROM produktuak WHERE id = " . $id;
             $emaitza = $db->exec($sql);
             return $emaitza;

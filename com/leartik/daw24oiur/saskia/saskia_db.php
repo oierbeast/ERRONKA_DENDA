@@ -13,7 +13,7 @@ class SaskiaDB {
      */
     public static function gordeEskaria($erabiltzaile_id, $edukia, $totala) {
         try {
-            $db = new \PDO('sqlite:../../produktuak.db');
+            $db = new \PDO('sqlite:' . __DIR__ . '/../../../produktuak.db');
             $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             
             // Iniciar transacción
@@ -59,7 +59,7 @@ class SaskiaDB {
      */
     public static function getEskaria($eskaria_id) {
         try {
-            $db = new \PDO('sqlite:../../produktuak.db');
+            $db = new \PDO('sqlite:' . __DIR__ . '/../../../produktuak.db');
             $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             
             $sql = "SELECT * FROM eskariak WHERE id = :id";

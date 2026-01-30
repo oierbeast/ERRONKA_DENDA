@@ -10,7 +10,7 @@ class KomentarioaDB {
     public static function selectKomentarioak($id_albistea) {
         try {
             // Copiamos la ruta exacta de tu imagen
-            $db = new PDO("sqlite:C:/xampp/htdocs/albisteak/albisteak.db");
+            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
             
             // Concatenamos el ID tal como hacéis en AlbisteaDB
             $erregistroak = $db->query("select * from komentarioak where id_albistea=" . $id_albistea);
@@ -41,7 +41,7 @@ class KomentarioaDB {
 
     public static function insertKomentarioa($komentarioa) {
         try {
-            $db = new PDO("sqlite:/home/jrolabarria/html/ariketa8_3/albisteak.db");
+            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
             
             // Construimos la query concatenando strings al estilo de tu ejemplo
             $sql = "insert into komentarioak (id_albistea, izena, komentarioaren_testua) values (";
@@ -61,7 +61,7 @@ class KomentarioaDB {
     public static function selectAllKomentarioak() {
         try {
             // Copiamos la ruta exacta de tu imagen
-            $db = new PDO("sqlite:C:/xampp/htdocs/albisteak/albisteak.db");
+            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
             
             // Traemos TODOS los comentarios sin filtro
             $erregistroak = $db->query("select * from komentarioak");

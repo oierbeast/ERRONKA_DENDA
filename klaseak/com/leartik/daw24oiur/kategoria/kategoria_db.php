@@ -12,7 +12,7 @@ class KategoriaDB
     public static function selectKategoriak()
     {
         try {
-            $db = new PDO("sqlite:C:\\xampp\\htdocs\\ERRONKA_01\\produktuak.db");
+            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
             $erregistroak = $db->query("select * from kategoriak");
             $kategoriak = array();
 
@@ -34,7 +34,7 @@ class KategoriaDB
     public static function selectKategoria($id)
     {
         try {
-            $db = new PDO("sqlite:C:\\xampp\\htdocs\\ERRONKA_01\\produktuak.db");
+            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
             $erregistroak = $db->query("select * from kategoriak where id=" . $id);
             $kategoria = null;
 
@@ -55,7 +55,7 @@ class KategoriaDB
     public static function insertKategoria($kategoria)
     {
         try {
-            $db = new PDO("sqlite:C:\\xampp\\htdocs\\ERRONKA_01\\produktuak.db");
+            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
             $sql = "insert into kategoriak (izena, deskribapena) values (";
             $sql .= "'" . $kategoria->getIzenburua() . "',";
             $sql .= "'" . $kategoria->getDeskribapena() . "')";
@@ -70,7 +70,7 @@ class KategoriaDB
     public static function updateKategoria($kategoria)
     {
         try {
-            $db = new PDO("sqlite:C:\\xampp\\htdocs\\ERRONKA_01\\produktuak.db");
+            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
             $sql = "UPDATE kategoriak SET 
                         izena = '" . $kategoria->getIzenburua() . "',
                         deskribapena = '" . $kategoria->getDeskribapena() . "'
@@ -86,7 +86,7 @@ class KategoriaDB
     public static function deleteKategoria($id)
     {
         try {
-            $db = new PDO("sqlite:C:\\xampp\\htdocs\\ERRONKA_01\\produktuak.db");
+            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $db->exec('PRAGMA foreign_keys = ON;');
 
