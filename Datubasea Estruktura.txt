@@ -1,0 +1,49 @@
+
+cd C:\xampp\htdocs\ERRONKA_01
+
+sqlite3 produktuak.db
+
+CREATE TABLE produktuak (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    izena TEXT NOT NULL,
+    kontsola TEXT NOT NULL,
+    marka TEXT,
+    urtea INTEGER,
+    prezioa DECIMAL(10,2)
+);
+
+INSERT INTO produktuak (izena, kontsola, marka, urtea, prezioa) VALUES 
+('Mario Kart', 'GBA', 'Nintendo', 2001, 19.99);
+
+INSERT INTO produktuak (izena, kontsola, marka, urtea, prezioa) VALUES 
+('Pokemon Diamante', 'NDS', 'Nintendo', 2006, 25.50);
+
+INSERT INTO produktuak (izena, kontsola, marka, urtea, prezioa) VALUES 
+('GTA San Andreas', 'PS2', 'Rockstar Games', 2004, 15.00);
+
+INSERT INTO produktuak (izena, kontsola, marka, urtea, prezioa) VALUES 
+('Street Figther', 'Neo Geo', 'Capcom', 1991, 89.99);
+
+INSERT INTO produktuak (izena, kontsola, marka, urtea, prezioa) VALUES 
+('Mario 64', 'N64', 'Nintendo', 1996, 45.00);
+
+INSERT INTO produktuak (izena, kontsola, marka, urtea, prezioa) VALUES 
+('Dragon Ball Z Budokai Tenkaichi 2', 'PS2', 'Bandai', 2006, 29.95);
+
+INSERT INTO produktuak (izena, kontsola, marka, urtea, prezioa) VALUES 
+('Tekken', 'PS2', 'Namco', 1995, 12.50);
+
+INSERT INTO produktuak (izena, kontsola, marka, urtea, prezioa) VALUES 
+('Crash Bandicoot', 'PS2', 'Naughty Dog', 1996, 10.00);
+
+INSERT INTO produktuak (izena, kontsola, marka, urtea, prezioa) VALUES 
+('PES 2006', 'PS2', 'Konami', 2006, 5.00);
+
+INSERT INTO produktuak (izena, kontsola, marka, urtea, prezioa) VALUES 
+('SONIC CD', 'MegaDrive', 'Sega', 1993, 30.75); 
+
+INSERT INTO produktuak (izena, kontsola, marka, urtea, prezioa) VALUES 
+('2K', 'PS2', '2K Sports', 2002, 7.50);
+
+INSERT INTO produktuak (izena, kontsola, marka, urtea, prezioa) VALUES 
+('Pokemon Amarillo', 'Game Boy', 'Nintendo', 1998, 35.00);

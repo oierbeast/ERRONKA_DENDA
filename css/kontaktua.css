@@ -1,0 +1,140 @@
+/* Kontaktua page styles */
+
+.kontaktua-container {
+  max-width: 800px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.kontaktua-container h2 {
+  color: #66c0f4;
+}
+
+.kontaktua-container .lead {
+  margin: 24px 0;
+  font-size: 1.15rem;
+}
+
+.kontaktua-image {
+  margin-top: 20px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  display: inline-block;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.kontaktua-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 420px;
+}
+
+.kontaktua-categories-wrapper {
+  max-width: 1200px;
+  margin: 60px auto 40px;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  padding: 0 20px;
+  align-items: stretch; /* OJO AQUÍ: Esto fuerza a que ambas tarjetas tengan la misma altura */
+}
+
+.kontaktua-item {
+  flex: 1;
+  min-width: 320px;
+}
+.kontaktua-item.productua-card {
+  /* Usamos Flexbox vertical para la estructura interna de la tarjeta */
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ocupa toda la altura que le da el padre */
+  
+  /* Estilos visuales */
+  background: linear-gradient(135deg, #1b3a4a 0%, #2d5a6e 100%);
+  border: 1px solid #66c0f4;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  gap: 10px; 
+}
+.kontaktua-item.productua-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(102, 192, 244, 0.4), rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.kontaktua-item h3 {
+  color: #66c0f4;
+  margin: 0 0 10px 0; /* Un poco de margen solo abajo del título */
+  font-size: 1.4em;
+  flex-shrink: 0; /* El título no se encoge */
+}
+.kontaktua-item .thumb {
+  flex-shrink: 0; /* La imagen no se encoge */
+  width: 100%;
+  margin-bottom: 10px; /* Espacio controlado debajo de la imagen */
+}
+.kontaktua-item .thumb img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+.kontaktua-item a {
+  color: #1b2838;
+  text-decoration: none;
+  background-color: #66c0f4;
+  font-weight: bold;
+  
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: 0.2s;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.kontaktua-item a.btn-action {
+  margin-top: auto; /* Medida de seguridad para empujar al fondo */
+  color: #1b2838;
+  text-decoration: none;
+  background-color: #66c0f4;
+  font-weight: bold;
+  padding: 12px 30px;
+  border-radius: 6px;
+  transition: 0.2s;
+  display: inline-block;
+  width: fit-content; /* El botón se ajusta a su texto */
+  align-self: center; /* Centrado horizontalmente */
+}
+
+.kontaktua-item a.btn-action:hover {
+  background-color: #8fd3ff;
+}
+.card-content {
+  flex-grow: 1; /* ESTO ES CLAVE: Hace que el texto ocupe todo el espacio disponible empujando el botón abajo */
+  width: 100%;
+ text-align: center; /* Texto justificado como pediste */
+  padding: 0 5px; /* Un pequeño margen lateral para que no pegue a los bordes */
+}
+.card-content p {
+  color: #e1e1e1;
+  font-size: 0.95rem;
+  line-height: 1.5; /* Espaciado agradable entre líneas */
+  margin-bottom: 10px; /* Espacio entre párrafos */
+}
+.kontaktua-item a:hover {
+  background-color: #8fd3ff;
+}
+
+@media (max-width: 760px) {
+  .kontaktua-categories-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .kontaktua-item {
+    min-width: 100%;
+  }
+}

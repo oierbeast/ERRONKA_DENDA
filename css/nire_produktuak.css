@@ -1,0 +1,37 @@
+.tetris-img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.tetris-img:hover {
+  transform: scale(1.5);
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+}
+.soundtrack-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  flex-wrap: wrap;
+  margin: 30px 0;
+  padding: 20px;
+}
+.soundtrack-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.soundtrack-item img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+  max-width: 100px;
+  margin-bottom: 10px;
+}
+.soundtrack-item img:hover {
+  transform: scale(1.5);
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+}
+.soundtrack-item p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 14px;
+}

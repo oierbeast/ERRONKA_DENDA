@@ -1,0 +1,70 @@
+/* Styles for product detail page (Flexbox-based layout) */
+.produktua-detail {
+	max-width: 1000px;
+	margin: 40px auto;
+	text-align: left;
+	display: flex;
+	gap: 24px;
+	align-items: flex-start;
+}
+
+.produktua-detail .thumb {
+	flex: 0 0 300px;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.produktua-detail .thumb img {
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 8px;
+	box-shadow: none;
+}
+
+/* outer shadow behind the image */
+.produktua-detail .thumb {
+	box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.produktua-detail .info {
+	flex: 1 1 auto;
+}
+
+.produktua-detail h2 {
+	color: #66c0f4;
+	margin-top: 0;
+}
+
+.produktua-meta {
+	margin-top: 10px;
+	color: #c7d5e0;
+}
+
+.produktua-meta a {
+	color: #c7d5e0;
+	text-decoration: none;
+	cursor: pointer;
+	transition: color 0.2s;
+}
+
+.produktua-meta a:hover {
+	color: #66c0f4;
+}
+
+.clear { clear: both; }
+
+/* Back button placement */
+.detail-back { margin-top: 12px; }
+
+/* Responsive: stack on small screens */
+@media (max-width: 720px) {
+	.produktua-detail {
+		flex-direction: column;
+		align-items: center;
+	}
+	.produktua-detail .thumb { flex: 0 0 auto; width: 80%; max-width: 420px; }
+	.produktua-detail .info { width: 100%; }
+	.produktua-meta { text-align: left; }
+}
+
