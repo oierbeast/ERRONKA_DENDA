@@ -3,12 +3,31 @@ namespace com\leartik\daw24oiur\produktuak;
 
 use PDO;
 
+// Función helper para encontrar produktuak.db
+function getDbPath() {
+    $locations = [
+        __DIR__ . "/../../../../../produktuak.db",      // Local/XAMPP
+        dirname(dirname(dirname(dirname(dirname(dirname(__DIR__)))))) . "/produktuak.db",  // AWS con carpeta anidada
+        "/var/www/html/produktuak.db",                   // AWS común
+        "/home/ec2-user/html/produktuak.db",             // AWS alternativo
+    ];
+    
+    foreach ($locations as $path) {
+        if (file_exists($path)) {
+            return $path;
+        }
+    }
+    
+    // Si no encuentra el archivo, retorna la ruta por defecto
+    return __DIR__ . "/../../../../../produktuak.db";
+}
+
 class ProduktuaDB
 {
     public static function selectProduktuak()
     {
         try {
-            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
+            $db = new PDO("sqlite:" . getDbPath());
             $erregistroak = $db->query("select * from produktuak");
             $produktuak = array();
 
@@ -33,7 +52,7 @@ class ProduktuaDB
     public static function selectProduktua($id)
     {
         try {
-            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
+            $db = new PDO("sqlite:" . getDbPath());
             $erregistroak = $db->query("select * from produktuak where id=" . $id);
             $produktua = null;
 
@@ -60,7 +79,7 @@ class ProduktuaDB
     public static function insertProduktua($produktua)
     {
         try {
-            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
+            $db = new PDO("sqlite:" . getDbPath());
             $kategoria_id = $produktua->getKategoriaId() ? $produktua->getKategoriaId() : "NULL";
             $sql = "insert into produktuak (izena, kontsola, marka, urtea, prezioa, kategoria_id) values (";
             $sql .= "'" . $produktua->getIzena() . "',";
@@ -80,7 +99,7 @@ class ProduktuaDB
     public static function updateProduktua($produktua)
     {
         try {
-            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
+            $db = new PDO("sqlite:" . getDbPath());
             $sql = "UPDATE produktuak SET
                         izena = '" . $produktua->getIzena() . "',
                         kontsola = '" . $produktua->getKontsola() . "',
@@ -100,7 +119,7 @@ class ProduktuaDB
     public static function deleteProduktua($id)
     {
         try {
-            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
+            $db = new PDO("sqlite:" . getDbPath());
             $sql = "DELETE FROM produktuak WHERE id = " . $id;
             $emaitza = $db->exec($sql);
             return $emaitza;

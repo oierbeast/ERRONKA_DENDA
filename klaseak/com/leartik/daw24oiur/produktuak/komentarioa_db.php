@@ -5,12 +5,31 @@ namespace com\leartik\daw24oiur\produktuak;
 use PDO;
 use Exception;
 
+// Función helper para encontrar produktuak.db
+function getDbPath() {
+    $locations = [
+        __DIR__ . "/../../../../../produktuak.db",      // Local/XAMPP
+        dirname(dirname(dirname(dirname(dirname(dirname(__DIR__)))))) . "/produktuak.db",  // AWS con carpeta anidada
+        "/var/www/html/produktuak.db",                   // AWS común
+        "/home/ec2-user/html/produktuak.db",             // AWS alternativo
+    ];
+    
+    foreach ($locations as $path) {
+        if (file_exists($path)) {
+            return $path;
+        }
+    }
+    
+    // Si no encuentra el archivo, retorna la ruta por defecto
+    return __DIR__ . "/../../../../../produktuak.db";
+}
+
 class KomentarioaDB {
 
     public static function selectKomentarioak($id_albistea) {
         try {
             // Copiamos la ruta exacta de tu imagen
-            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
+            $db = new PDO("sqlite:" . getDbPath());
             
             // Concatenamos el ID tal como hacéis en AlbisteaDB
             $erregistroak = $db->query("select * from komentarioak where id_albistea=" . $id_albistea);
@@ -41,7 +60,7 @@ class KomentarioaDB {
 
     public static function insertKomentarioa($komentarioa) {
         try {
-            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
+            $db = new PDO("sqlite:" . getDbPath());
             
             // Construimos la query concatenando strings al estilo de tu ejemplo
             $sql = "insert into komentarioak (id_albistea, izena, komentarioaren_testua) values (";
@@ -61,7 +80,7 @@ class KomentarioaDB {
     public static function selectAllKomentarioak() {
         try {
             // Copiamos la ruta exacta de tu imagen
-            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
+            $db = new PDO("sqlite:" . getDbPath());
             
             // Traemos TODOS los comentarios sin filtro
             $erregistroak = $db->query("select * from komentarioak");

@@ -2,6 +2,25 @@
 
 namespace com\leartik\daw24oiur\saskia;
 
+// Función helper para encontrar produktuak.db
+function getDbPath() {
+    $locations = [
+        __DIR__ . "/../../../../produktuak.db",         // Local/XAMPP
+        dirname(dirname(dirname(dirname(__DIR__)))) . "/produktuak.db",  // AWS con carpeta anidada
+        "/var/www/html/produktuak.db",                   // AWS común
+        "/home/ec2-user/html/produktuak.db",             // AWS alternativo
+    ];
+    
+    foreach ($locations as $path) {
+        if (file_exists($path)) {
+            return $path;
+        }
+    }
+    
+    // Si no encuentra el archivo, retorna la ruta por defecto
+    return __DIR__ . "/../../../../produktuak.db";
+}
+
 class SaskiaDB {
     
     /**
@@ -13,7 +32,7 @@ class SaskiaDB {
      */
     public static function gordeEskaria($erabiltzaile_id, $edukia, $totala) {
         try {
-            $db = new \PDO('sqlite:' . __DIR__ . '/../../../produktuak.db');
+            $db = new \PDO('sqlite:' . getDbPath());
             $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             
             // Iniciar transacción
@@ -59,7 +78,7 @@ class SaskiaDB {
      */
     public static function getEskaria($eskaria_id) {
         try {
-            $db = new \PDO('sqlite:' . __DIR__ . '/../../../produktuak.db');
+            $db = new \PDO('sqlite:' . getDbPath());
             $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             
             $sql = "SELECT * FROM eskariak WHERE id = :id";

@@ -7,12 +7,31 @@ use Exception;
 
 require_once(__DIR__ . '/kategoria.php');
 
+// Función helper para encontrar produktuak.db
+function getDbPath() {
+    $locations = [
+        __DIR__ . "/../../../../../produktuak.db",      // Local/XAMPP
+        dirname(dirname(dirname(dirname(dirname(dirname(__DIR__)))))) . "/produktuak.db",  // AWS con carpeta anidada
+        "/var/www/html/produktuak.db",                   // AWS común
+        "/home/ec2-user/html/produktuak.db",             // AWS alternativo
+    ];
+    
+    foreach ($locations as $path) {
+        if (file_exists($path)) {
+            return $path;
+        }
+    }
+    
+    // Si no encuentra el archivo, retorna la ruta por defecto
+    return __DIR__ . "/../../../../../produktuak.db";
+}
+
 class KategoriaDB
 {
     public static function selectKategoriak()
     {
         try {
-            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
+            $db = new PDO("sqlite:" . getDbPath());
             $erregistroak = $db->query("select * from kategoriak");
             $kategoriak = array();
 
@@ -34,7 +53,7 @@ class KategoriaDB
     public static function selectKategoria($id)
     {
         try {
-            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
+            $db = new PDO("sqlite:" . getDbPath());
             $erregistroak = $db->query("select * from kategoriak where id=" . $id);
             $kategoria = null;
 
@@ -55,7 +74,7 @@ class KategoriaDB
     public static function insertKategoria($kategoria)
     {
         try {
-            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
+            $db = new PDO("sqlite:" . getDbPath());
             $sql = "insert into kategoriak (izena, deskribapena) values (";
             $sql .= "'" . $kategoria->getIzenburua() . "',";
             $sql .= "'" . $kategoria->getDeskribapena() . "')";
@@ -70,7 +89,7 @@ class KategoriaDB
     public static function updateKategoria($kategoria)
     {
         try {
-            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
+            $db = new PDO("sqlite:" . getDbPath());
             $sql = "UPDATE kategoriak SET 
                         izena = '" . $kategoria->getIzenburua() . "',
                         deskribapena = '" . $kategoria->getDeskribapena() . "'
@@ -86,7 +105,7 @@ class KategoriaDB
     public static function deleteKategoria($id)
     {
         try {
-            $db = new PDO("sqlite:" . __DIR__ . "/../../../../../produktuak.db");
+            $db = new PDO("sqlite:" . getDbPath());
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $db->exec('PRAGMA foreign_keys = ON;');
 
