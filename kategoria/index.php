@@ -21,10 +21,10 @@ try {
     <div class="header-container">
       <h1>Steamnet Explorer</h1>
       <nav>
-        <a href="/ERRONKA_01/?p=catalogo">Katalogoa</a>
-        <a href="/ERRONKA_01/kategoria/">Kategoriak</a>
-        <a href="/ERRONKA_01/nire_produktuak/index.php">Nire Produktuak</a>
-        <a href="/ERRONKA_01/komentario_berria/index.php">Kontaktua</a>
+        <a href="../?p=catalogo">Katalogoa</a>
+        <a href="./">Kategoriak</a>
+        <a href="../nire_produktuak/index.php">Nire Produktuak</a>
+        <a href="../komentario_berria/index.php">Kontaktua</a>
       </nav>
     </div>
     <main>
@@ -40,7 +40,7 @@ try {
             <?php endforeach; ?>
         </div>
         <div style="text-align:center; margin-top:8px;">
-            <a class="botoia" href="/ERRONKA_01/">Joko guztiak ikusi</a>
+            <a class="botoia" href="../">Joko guztiak ikusi</a>
         </div>
     </main>
 </body>

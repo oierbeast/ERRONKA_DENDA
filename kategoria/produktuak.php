@@ -34,10 +34,10 @@ $izenburua = isset($kategoriak[$kategoria_id]) ? $kategoriak[$kategoria_id]["ize
     <div class="header-container">
       <h1>Steamnet Explorer</h1>
       <nav>
-        <a href="/ERRONKA_01/?p=catalogo">Katalogoa</a>
-        <a href="/ERRONKA_01/kategoria/">Kategoriak</a>
-        <a href="/ERRONKA_01/nire_produktuak/index.php">Nire Produktuak</a>
-        <a href="/ERRONKA_01/komentario_berria/index.php">Kontaktua</a>
+        <a href="../?p=catalogo">Katalogoa</a>
+        <a href="./">Kategoriak</a>
+        <a href="../nire_produktuak/index.php">Nire Produktuak</a>
+        <a href="../komentario_berria/index.php">Kontaktua</a>
       </nav>
     </div>
         <main>
@@ -56,17 +56,17 @@ $izenburua = isset($kategoriak[$kategoria_id]) ? $kategoriak[$kategoria_id]["ize
                     ?>
                     <div class="produktua-card">
                         <div class="thumb">
-                            <a href="/ERRONKA_01/produktua.php?id=<?php echo $p['id']; ?>">
+                            <a href="../produktua.php?id=<?php echo $p['id']; ?>">
                                 <img src="<?php echo $img; ?>" alt="<?php echo $izena; ?>" loading="lazy" width="600" height="800" onerror="this.src='../irudiak/4.png'">
                             </a>
                         </div>
                         <div class="info">
-                            <h3><a href="/ERRONKA_01/produktua.php?id=<?php echo $p['id']; ?>" style="color:inherit; text-decoration:none;"><?php echo $izena; ?></a></h3>
+                            <h3><a href="../produktua.php?id=<?php echo $p['id']; ?>" style="color:inherit; text-decoration:none;"><?php echo $izena; ?></a></h3>
                             <p><strong>Kontsola:</strong> <?php echo $kontsola; ?></p>
                             <p><strong>Marka:</strong> <?php echo $marka; ?></p>
                             <p><strong>Urtea:</strong> <?php echo $urtea; ?></p>
                             <p><strong>Prezioa:</strong> <?php echo $prezioa; ?> €</p>
-                            <form method="POST" action="/ERRONKA_01/saskia/index.php" style="margin-top: 10px;">
+                            <form method="POST" action="../saskia/index.php" style="margin-top: 10px;">
                                 <input type="hidden" name="gehitu" value="<?php echo $p['id']; ?>">
                                 <input type="number" name="kantitatea" value="1" min="1" style="width: 50px; padding: 5px;">
                                 <button type="submit" style="padding: 6px 12px; background-color: #008CBA; color: white; border: none; border-radius: 3px; cursor: pointer;">Saskira</button>
@@ -79,7 +79,7 @@ $izenburua = isset($kategoriak[$kategoria_id]) ? $kategoriak[$kategoria_id]["ize
             <?php endif; ?>
         </div>
         <div class="centered-button-bottom">
-            <a class="botoia" href="/ERRONKA_01/kategoria/">Itzuli</a>
+            <a class="botoia" href="./">Itzuli</a>
         </div>
             </div>
         </main>

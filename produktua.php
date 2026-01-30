@@ -39,7 +39,7 @@ if ($id > 0) {
             $kid = $produktua->getKategoriaId();
             if ($kid) {
                 $kname = isset($kategoriak[$kid]) ? $kategoriak[$kid] : 'Kategoria ezezaguna';
-                echo '<p><strong>Kategoria:</strong> <a href="/ERRONKA_01/kategoria/produktuak.php?id=' . intval($kid) . '">' . htmlspecialchars($kname) . '</a></p>';
+                echo '<p><strong>Kategoria:</strong> <a href="./kategoria/produktuak.php?id=' . intval($kid) . '">' . htmlspecialchars($kname) . '</a></p>';
             }
           ?>
         </div>
@@ -52,7 +52,7 @@ if ($id > 0) {
 
     <?php if ($produktua): ?>
     <div style="text-align: center; margin: 30px 0;">
-      <form method="POST" action="/ERRONKA_01/saskia/index.php" style="display: inline;">
+      <form method="POST" action="./saskia/index.php" style="display: inline;">
         <input type="hidden" name="gehitu" value="<?php echo $produktua->getId(); ?>">
         <input type="number" name="kantitatea" value="1" min="1" style="width: 60px; padding: 8px; margin-right: 10px;">
         <button type="submit" class="botoia" style="padding: 10px 30px; font-size: 16px;">Saskira gehitu</button>
@@ -62,7 +62,7 @@ if ($id > 0) {
 
     <?php
       // Default back to home
-      $back = '/ERRONKA_01/';
+      $back = './';
 
       // If we came from an internal page, prefer that referer
       if (!empty($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'ERRONKA_01') !== false) {
@@ -70,7 +70,7 @@ if ($id > 0) {
       } else {
           // Otherwise, if the product has a category, go to that category product list
           if (isset($produktua) && method_exists($produktua, 'getKategoriaId') && $produktua->getKategoriaId()) {
-              $back = '/ERRONKA_01/kategoria/produktuak.php?id=' . intval($produktua->getKategoriaId());
+              $back = './kategoria/produktuak.php?id=' . intval($produktua->getKategoriaId());
           }
       }
     ?>

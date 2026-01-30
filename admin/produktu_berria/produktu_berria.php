@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Produktuak</title>
     <!-- CAMBIAR: título "Albisteak" por "Produktuak" -->
-    <script src="/ERRONKA_01/js/produktu_berria.js" defer></script>
+    <script src="../../js/produktu_berria.js" defer></script>
 </head>
 <body>
     <h1>Produktuen administrazio gunea</h1>

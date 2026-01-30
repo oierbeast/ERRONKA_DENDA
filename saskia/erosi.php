@@ -11,7 +11,7 @@ use com\leartik\daw24oiur\produktuak\ProduktuaDB;
 // Comprobar si el usuario está logueado
 if (!isset($_COOKIE['erabiltzailea']) || $_COOKIE['erabiltzailea'] !== 'admin') {
     // Si no es admin, redirigir a login (opcional según tu lógica)
-    // header('Location: /ERRONKA_01/admin/login.php');
+    // header('Location: ../admin/login.php');
     // exit;
 }
 
@@ -19,7 +19,7 @@ $saskia = new Saskia();
 $edukia = $saskia->getEdukia();
 
 if (empty($edukia)) {
-    header('Location: /ERRONKA_01/saskia/saskia_erakutsi.php');
+    header('Location: ./saskia_erakutsi.php');
     exit;
 }
 
@@ -38,11 +38,11 @@ $erabiltzaile_id = 1; // En producción, obtener del usuario logueado
 try {
     $eskaria_id = SaskiaDB::gordeEskaria($erabiltzaile_id, $edukia, $totalGuztira);
     $saskia->garbitu();
-    header('Location: /ERRONKA_01/eskerrik_asko.php?eskaria_id=' . $eskaria_id);
+    header('Location: ../eskerrik_asko.php?eskaria_id=' . $eskaria_id);
     exit;
 } catch (Exception $e) {
     $_SESSION['errorea'] = "Errorea erosketak gorde ditzean: " . $e->getMessage();
-    header('Location: /ERRONKA_01/saskia/saskia_erakutsi.php');
+    header('Location: ./saskia_erakutsi.php');
     exit;
 }
 ?>

@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['gehitu'])) {
     if ($kantitatea > 0) {
         $saskia->gehitu($id, $kantitatea);
     }
-    header('Location: /ERRONKA_01/saskia/saskia_erakutsi.php');
+    header('Location: ./saskia_erakutsi.php');
     exit;
 }
 
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['aldatu'])) {
     } else {
         $saskia->ezabatu($id);
     }
-    header('Location: /ERRONKA_01/saskia/saskia_erakutsi.php');
+    header('Location: ./saskia_erakutsi.php');
     exit;
 }
 
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['aldatu'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ezabatu'])) {
     $id = intval($_POST['ezabatu']);
     $saskia->ezabatu($id);
-    header('Location: /ERRONKA_01/saskia/saskia_erakutsi.php');
+    header('Location: ./saskia_erakutsi.php');
     exit;
 }
 

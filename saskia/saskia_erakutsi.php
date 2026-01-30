@@ -14,8 +14,8 @@ $edukia = $saskia->getEdukia();
 <head>
     <meta charset="utf-8">
     <title>Saskia</title>
-    <link rel="stylesheet" href="/ERRONKA_01/css/index.css">
-    <link rel="stylesheet" href="/ERRONKA_01/css/produktua.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/produktua.css">
     <style>
         .saskia-table {
             width: 90%;
@@ -120,10 +120,10 @@ $edukia = $saskia->getEdukia();
         <?php if (empty($edukia)): ?>
             <div class="empty-basket">
                 <p>Zure saskia hutsik dago.</p>
-                <a href="/ERRONKA_01/kategoria/index.php">Produktuak ikusi</a>
+                <a href="../kategoria/index.php">Produktuak ikusi</a>
             </div>
         <?php else: ?>
-            <form method="POST" action="/ERRONKA_01/saskia/index.php">
+            <form method="POST" action="./index.php">
                 <table class="saskia-table">
                     <thead>
                         <tr>
@@ -172,7 +172,7 @@ $edukia = $saskia->getEdukia();
                     </tbody>
                 </table>
                 
-                <a href="/ERRONKA_01/saskia/erosi.php" class="btn-checkout">Erosketa Bukatu</a>
+                <a href="./erosi.php" class="btn-checkout">Erosketa Bukatu</a>
             </form>
         <?php endif; ?>
     </main>

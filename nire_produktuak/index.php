@@ -6,11 +6,11 @@
 <head>
   <meta charset="utf-8">
   <title>Kontaktua</title>
-  <link rel="stylesheet" href="/ERRONKA_01/css/index.css">
-  <link rel="stylesheet" href="/ERRONKA_01/css/produktua.css">
-  <link rel="stylesheet" href="/ERRONKA_01/css/kontaktua.css">
-  <link rel="stylesheet" href="/ERRONKA_01/css/nire_produktuak.css">
-  <script src="/ERRONKA_01/js/main.js" defer></script>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/produktua.css">
+  <link rel="stylesheet" href="../css/kontaktua.css">
+  <link rel="stylesheet" href="../css/nire_produktuak.css">
+  <script src="../js/main.js" defer></script>
 </head>
 <body>
   <?php include __DIR__ . '/../index_bar.php'; ?>
@@ -55,7 +55,7 @@
             <h3>Kontsola</h3>
             
             <div class="thumb">
-                <img src="/ERRONKA_01/irudiak/Consola.png" alt="Kontsola" loading="lazy">
+                <img src="../irudiak/Consola.png" alt="Kontsola" loading="lazy">
             </div>
             
             <div class="card-content">
@@ -73,7 +73,7 @@
             <h3>Bideojokoa</h3>
             
             <div class="thumb">
-                <img src="/ERRONKA_01/irudiak/Bideojokoa.png" alt="Bideojokoa" loading="lazy">
+                <img src="../irudiak/Bideojokoa.png" alt="Bideojokoa" loading="lazy">
             </div>
 
             <div class="card-content">

@@ -6,7 +6,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <title>Eskerrik Asko</title>
-    <link rel="stylesheet" href="/ERRONKA_01/css/index.css">
+    <link rel="stylesheet" href="./css/index.css">
     <style>
         .success-message {
             text-align: center;
@@ -60,7 +60,7 @@ session_start();
             <?php endif; ?>
             <p>Laster kontaktuan jarriko gara zurekin.</p>
             <p>Zure eskariak prozesatzean, zure kontserbazioari buruzko informazioa bidaliko zaizu.</p>
-            <a href="/ERRONKA_01/index.php">Hasiera itzuli</a>
+            <a href="./index.php">Hasiera itzuli</a>
         </div>
     </main>
 </body>

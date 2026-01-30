@@ -15,10 +15,10 @@ use com\leartik\daw24oiur\produktuak\ProduktuaDB;
   <div class="header-container">
     <h1>Steamnet Explorer</h1>
     <nav>
-      <a href="/ERRONKA_01/?p=catalogo">Katalogoa</a>
-      <a href="/ERRONKA_01/kategoria/">Kategoriak</a>
-      <a href="/ERRONKA_01/nire_produktuak/index.php">Nire Produktuak</a>
-      <a href="/ERRONKA_01/komentario_berria/">Kontaktua</a>
+      <a href="./?p=catalogo">Katalogoa</a>
+      <a href="./kategoria/">Kategoriak</a>
+      <a href="./nire_produktuak/index.php">Nire Produktuak</a>
+      <a href="./komentario_berria/">Kontaktua</a>
     </nav>
   </div>
 
@@ -40,19 +40,19 @@ use com\leartik\daw24oiur\produktuak\ProduktuaDB;
 
         // IMAGEN (en un marco fijo)
         echo '<div class="thumb">';
-        echo '<a href="/ERRONKA_01/produktua.php?id=' . $produktua->getId() . '">';
+        echo '<a href="./produktua.php?id=' . $produktua->getId() . '">';
         echo '<img src="' . $img . '" alt="' . $izena . '" loading="lazy" width="600" height="800" onerror="this.src=\'irudiak/4.png\'">';
         echo '</a>';
         echo '</div>';
 
         // TEXTO
         echo '<div class="info">';
-        echo '<h3><a href="/ERRONKA_01/produktua.php?id=' . $produktua->getId() . '" style="color:inherit; text-decoration:none;">' . $izena . '</a></h3>';
+        echo '<h3><a href="./produktua.php?id=' . $produktua->getId() . '" style="color:inherit; text-decoration:none;">' . $izena . '</a></h3>';
         echo '<p><strong>Kontsola:</strong> ' . $kontsola . '</p>';
         echo '<p><strong>Marka:</strong> ' . $marka . '</p>';
         echo '<p><strong>Urtea:</strong> ' . $urtea . '</p>';
         echo '<p><strong>Prezioa:</strong> ' . $prezioa . '€</p>';
-        echo '<form method="POST" action="/ERRONKA_01/saskia/index.php" style="margin-top: 10px;">';
+        echo '<form method="POST" action="./saskia/index.php" style="margin-top: 10px;">';
         echo '<input type="hidden" name="gehitu" value="' . $produktua->getId() . '">';
         echo '<input type="number" name="kantitatea" value="1" min="1" style="width: 50px; padding: 5px;">';
         echo '<button type="submit" style="padding: 6px 12px; background-color: #008CBA; color: white; border: none; border-radius: 3px; cursor: pointer;">Saskira</button>';
@@ -68,7 +68,7 @@ use com\leartik\daw24oiur\produktuak\ProduktuaDB;
     </div>
 
     <div style="margin-top: 20px; text-align: center;">
-      <a class="botoia" href="/ERRONKA_01/kategoria/">Kategoriaka sailkatuta →</a>
+      <a class="botoia" href="./kategoria/">Kategoriaka sailkatuta →</a>
       <p>Nahi duzun joko retroa aurki dezakezu.<br>Urteka banatuta, kontsolaka banantuta.</p>
     </div>
   </main>
