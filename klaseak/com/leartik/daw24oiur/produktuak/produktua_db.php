@@ -14,11 +14,15 @@ function getDbPath() {
     
     foreach ($locations as $path) {
         if (file_exists($path)) {
+            error_log("✓ Database found at: " . $path);
             return $path;
+        } else {
+            error_log("✗ Not found: " . $path);
         }
     }
     
     // Si no encuentra el archivo, retorna la ruta por defecto
+    error_log("! Using default path");
     return __DIR__ . "/../../../../../produktuak.db";
 }
 
